@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3077, 10 )
+
+[node name="ZonaMorir" type="Area2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ -568.0 ]
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 3067, 0 )
+shape = SubResource( 1 )
