@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://ventana.png" type="Texture" id=1]
+[ext_resource path="res://monedaz.png" type="Texture" id=1]
+[ext_resource path="res://Moneda.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -46,19 +47,32 @@ region = Rect2( 32, 64, 32, 32 )
 atlas = ExtResource( 1 )
 region = Rect2( 64, 64, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=12]
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 64, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=13]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[node name="ventana" type="StaticBody2D"]
+[sub_resource type="CircleShape2D" id=14]
+radius = 16.0
+
+[node name="Moneda" type="Area2D"]
+script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -1.90735e-06, 1.90735e-06 )
-scale = Vector2( 3.02344, 3.02344 )
-frames = SubResource( 12 )
-frame = 1
+position = Vector2( 0, 9.53674e-07 )
+scale = Vector2( 1.25159, -1.26127 )
+frames = SubResource( 13 )
+frame = 9
 playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 14 )
+
+[connection signal="body_entered" from="." to="." method="_on_Moneda_body_entered"]

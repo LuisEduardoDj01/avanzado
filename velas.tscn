@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://velas.png" type="Texture" id=1]
+[ext_resource path="res://velas.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -58,11 +59,20 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="velas" type="StaticBody2D"]
+[sub_resource type="CircleShape2D" id=14]
+radius = 24.0
+
+[node name="velas" type="Area2D"]
+script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -1.90735e-06, 1.90735e-06 )
-scale = Vector2( 1.95313, 1.95313 )
+scale = Vector2( 2.25, 2.25 )
 frames = SubResource( 13 )
-frame = 6
+frame = 10
 playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -8 )
+shape = SubResource( 14 )
+
+[connection signal="body_entered" from="." to="." method="_on_velas_body_entered"]

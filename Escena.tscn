@@ -1,36 +1,89 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Baldosa.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Jugador.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Baldosa2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ZonaMorir.tscn" type="PackedScene" id=4]
 [ext_resource path="res://velas.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ventana.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ventana.png" type="Texture" id=6]
 [ext_resource path="res://Powerup_velocity.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Puntos.gd" type="Script" id=8]
+[ext_resource path="res://Moneda.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Powerup_redvel.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Superpuntos.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Puntos.gd" type="Script" id=10]
+[ext_resource path="res://pausebutton.png" type="Texture" id=11]
+[ext_resource path="res://TouchScreenButton.gd" type="Script" id=12]
+[ext_resource path="res://Vida.tscn" type="PackedScene" id=13]
+[ext_resource path="res://salud_txt.gd" type="Script" id=14]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 6 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 6 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 6 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 6 )
+region = Rect2( 32, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 6 )
+region = Rect2( 64, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 6 )
+region = Rect2( 96, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 6 )
+region = Rect2( 32, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 6 )
+region = Rect2( 64, 64, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 28.25, 33 )
 
 [node name="Escena" type="Node2D"]
 position = Vector2( 37, 216 )
-
-[node name="ventana2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 659, -16 )
-
-[node name="ventana3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1043, -16 )
-
-[node name="ventana" parent="." instance=ExtResource( 6 )]
-position = Vector2( 211, -16 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
 
 [node name="velas" parent="." instance=ExtResource( 5 )]
-position = Vector2( 195, 3 )
+position = Vector2( 219, 82 )
 
 [node name="velas3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1029, 4 )
+position = Vector2( 961, 62 )
 
-[node name="velas2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 679, 2 )
+[node name="velas" parent="velas3" instance=ExtResource( 5 )]
+position = Vector2( 483, 155 )
 
 [node name="Jugador" parent="." instance=ExtResource( 2 )]
 position = Vector2( 59, 72 )
@@ -80,20 +133,93 @@ position = Vector2( 1659, 136 )
 [node name="Powerup_redvel" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1283, -192 )
 
-[node name="Superpuntos" parent="." instance=ExtResource( 10 )]
-position = Vector2( 315, -152 )
+[node name="Moneda2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 386, -23 )
 
-[node name="Superpuntos2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 523, -8 )
-
-[node name="Superpuntos3" parent="." instance=ExtResource( 10 )]
-position = Vector2( 331, 48 )
+[node name="Moneda" parent="." instance=ExtResource( 8 )]
+position = Vector2( 337, 41 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Moneda" parent="CanvasLayer" instance=ExtResource( 8 )]
+position = Vector2( 61, 44 )
+scale = Vector2( -1.47707, 1.38285 )
+
+[node name="Vida" parent="CanvasLayer" instance=ExtResource( 13 )]
+position = Vector2( 216, 48 )
+scale = Vector2( 1.3015, 1.03182 )
+
+[node name="salud_txt" type="RichTextLabel" parent="CanvasLayer"]
+anchor_left = 0.086
+anchor_top = 0.025
+anchor_right = 0.247
+anchor_bottom = 0.173
+margin_left = 183.936
+margin_top = 17.0
+margin_right = 53.072
+margin_bottom = -55.8
+rect_scale = Vector2( 2, 2.05 )
+text = "00"
+script = ExtResource( 14 )
+
 [node name="Puntos" type="RichTextLabel" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 8 )
+anchor_left = 0.086
+anchor_top = 0.025
+anchor_right = 0.247
+anchor_bottom = 0.173
+margin_left = 6.936
+margin_top = 17.0
+margin_right = -123.928
+margin_bottom = -55.8
+rect_scale = Vector2( 2, 2.05 )
+text = "00"
+script = ExtResource( 10 )
+
+[node name="touchscreenbutton" type="Node2D" parent="CanvasLayer"]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/touchscreenbutton"]
+pause_mode = 2
+position = Vector2( 847, 17 )
+scale = Vector2( 1.46875, 1.46875 )
+normal = ExtResource( 11 )
+passby_press = true
+action = "pause"
+visibility_mode = 1
+script = ExtResource( 12 )
+
+[node name="Moneda3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 460, -19 )
+
+[node name="Moneda4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 686, -59 )
+
+[node name="Moneda5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 756, -86 )
+
+[node name="Moneda6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1448, -223 )
+
+[node name="Moneda7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1514, -194 )
+
+[node name="Moneda8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1571, -137 )
+
+[node name="Baldosa13" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1819, 8 )
+
+[node name="ventanita" type="Area2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ventanita"]
+position = Vector2( 1915, -64 )
+scale = Vector2( 2.5, 2.5 )
+frames = SubResource( 12 )
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ventanita"]
+position = Vector2( 1939, -64 )
+shape = SubResource( 13 )
 
 [connection signal="body_entered" from="ZonaMorir" to="Jugador" method="_on_ZonaMorir_body_entered"]
+[connection signal="body_entered" from="ventanita" to="Jugador" method="_on_ventanita_body_entered"]

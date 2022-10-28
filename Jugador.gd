@@ -29,3 +29,7 @@ func _process(delta):
 		animatedSprite.play("static")
 func _on_ZonaMorir_body_entered(body):
 	get_tree().change_scene("res://pantallaMorir.tscn")
+
+
+func _on_ventanita_body_entered(body):
+	get_tree().change_scene("res://Nivel2.tscn")
