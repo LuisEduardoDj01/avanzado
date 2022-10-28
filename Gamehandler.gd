@@ -11,7 +11,7 @@ var salud:int=50
 
 # Called when the node enters the scene tree for the first time.
 func _process(delta):
-	if puntos>=160:
+	if puntos>=210:
 		puntos=0
 		get_tree().change_scene("res://pantallaDemo.tscn")
 	if salud<=0:

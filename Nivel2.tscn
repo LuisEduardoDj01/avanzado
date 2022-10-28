@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Jugador.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Baldosa2.tscn" type="PackedScene" id=2]
@@ -8,21 +8,27 @@
 [ext_resource path="res://TouchScreenButton.gd" type="Script" id=6]
 [ext_resource path="res://Puntos.gd" type="Script" id=7]
 [ext_resource path="res://Superpuntos.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Baldosa.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ZonaMorir.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Vida.tscn" type="PackedScene" id=10]
 [ext_resource path="res://velas.tscn" type="PackedScene" id=11]
 [ext_resource path="res://salud_txt.gd" type="Script" id=12]
+[ext_resource path="res://cesped1.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Pino.tscn" type="PackedScene" id=14]
+[ext_resource path="res://cesped2.tscn" type="PackedScene" id=15]
 
 [node name="Nivel2" type="Node2D"]
 
-[node name="Baldosa" parent="." instance=ExtResource( 2 )]
-position = Vector2( 128, 480 )
+[node name="ZonaMorir" parent="." instance=ExtResource( 9 )]
+position = Vector2( -1064, 864 )
 
-[node name="Baldosa2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 320, 480 )
+[node name="Pino5" parent="." instance=ExtResource( 14 )]
+position = Vector2( 424, 312 )
 
-[node name="Baldosa3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 512, 480 )
+[node name="Pino2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 648, 504 )
+
+[node name="Pino" parent="." instance=ExtResource( 14 )]
+position = Vector2( 352, 312 )
 
 [node name="ventana" parent="." instance=ExtResource( 3 )]
 position = Vector2( 224, 408 )
@@ -88,17 +94,44 @@ rect_scale = Vector2( 2, 2.05 )
 text = "00"
 script = ExtResource( 12 )
 
-[node name="Baldosa4" parent="." instance=ExtResource( 9 )]
+[node name="cesped1" parent="." instance=ExtResource( 13 )]
 position = Vector2( 800, 480 )
-
-[node name="Baldosa5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 576, 672 )
-
-[node name="Baldosa6" parent="." instance=ExtResource( 9 )]
-position = Vector2( 352, 800 )
 
 [node name="Superpuntos" parent="." instance=ExtResource( 8 )]
 position = Vector2( 352, 728 )
 
 [node name="velas" parent="." instance=ExtResource( 11 )]
 position = Vector2( 360, 424 )
+
+[node name="cesped2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 128, 480 )
+
+[node name="cesped3" parent="." instance=ExtResource( 15 )]
+position = Vector2( 256, 480 )
+
+[node name="cesped4" parent="." instance=ExtResource( 15 )]
+position = Vector2( 384, 480 )
+
+[node name="cesped5" parent="." instance=ExtResource( 15 )]
+position = Vector2( 512, 480 )
+
+[node name="cesped6" parent="." instance=ExtResource( 15 )]
+position = Vector2( 640, 672 )
+
+[node name="cesped7" parent="." instance=ExtResource( 13 )]
+position = Vector2( 352, 800 )
+
+[node name="Pino3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 112, 312 )
+
+[node name="cesped8" parent="." instance=ExtResource( 15 )]
+position = Vector2( 448, 800 )
+
+[node name="Pino4" parent="." instance=ExtResource( 14 )]
+position = Vector2( 360, 632 )
+
+[node name="Baldosa" parent="." instance=ExtResource( 2 )]
+position = Vector2( 832, 736 )
+
+[node name="Superpuntos" parent="Baldosa" instance=ExtResource( 8 )]
+position = Vector2( 96, -80 )
