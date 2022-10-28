@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 1
+emission_sphere_radius = 128.0
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 584.6
+angle_random = 0.32
+scale_random = 0.24
+color = Color( 0.415686, 0.713726, 0.933333, 1 )
+
+[node name="Lluvia" type="Particles2D"]
+scale = Vector2( 2.963, 2.53774 )
+process_material = SubResource( 1 )
